@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt'],
   // Rute didefinisikan manual di src/routes.ts dan dihubungkan lewat src/router.options.ts
   pages: true,
+  routeRules: {
+    '/**': { headers: { 'cache-control': 'public, max-age=0, must-revalidate' } },
+  },
   css: ['~/index.css'],
   devServer: {
     port: Number(process.env.APP_PORT) || 3000,
@@ -27,15 +30,6 @@ export default defineNuxtConfig({
     },
     build: {
       cssCodeSplit: true,
-      rollupOptions: {
-        output: {
-          manualChunks: (id) => {
-            if (id.includes('node_modules')) {
-              return 'vendor'
-            }
-          },
-        },
-      },
     },
   },
   features: {
