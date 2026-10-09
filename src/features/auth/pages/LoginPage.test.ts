@@ -11,8 +11,8 @@ describe('LoginPage', () => {
   beforeEach(() => vi.mocked(showErrorDialog).mockResolvedValue())
 
   async function fill(wrapper: Awaited<ReturnType<typeof renderWithProviders>>['wrapper'], email = 'a@b.c', password = 'secret') {
-    await wrapper.find('#email').setValue(email)
-    await wrapper.find('#password').setValue(password)
+    await wrapper.find('#login-email-input').setValue(email)
+    await wrapper.find('#login-password-input').setValue(password)
     await wrapper.find('form').trigger('submit')
     await flushPromises()
   }
