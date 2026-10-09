@@ -25,6 +25,21 @@ export default defineNuxtConfig({
     define: {
       DELCOM_BASEURL: JSON.stringify(delcomBaseUrl),
     },
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              return 'vendor'
+            }
+          },
+        },
+      },
+    },
+  },
+  features: {
+    inlineStyles: true,
   },
   app: {
     head: {
