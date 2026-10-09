@@ -41,6 +41,18 @@ export default defineNuxtConfig({
   features: {
     inlineStyles: true,
   },
+  nitro: {
+    hooks: {
+      'render:html': (html) => {
+        html.head = html.head.map((tag) => {
+          if (tag.includes('rel="stylesheet"') && tag.includes('_nuxt/')) {
+            return tag.replace('rel="stylesheet"', 'rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"')
+          }
+          return tag
+        })
+      },
+    },
+  },
   app: {
     head: {
       title: 'Delcom Cash Flow',
