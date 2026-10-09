@@ -30,11 +30,21 @@ export default defineNuxtConfig({
     head: {
       title: 'Delcom Cash Flow',
       htmlAttrs: { lang: 'id' },
+      meta: [
+        { name: 'description', content: 'Aplikasi manajemen arus kas Delcom Cash Flow' },
+      ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
+          rel: 'preload',
+          as: 'style',
+          href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
+        },
+        {
           rel: 'stylesheet',
+          media: 'print',
+          onload: "this.media='all'",
           href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
         },
       ],
