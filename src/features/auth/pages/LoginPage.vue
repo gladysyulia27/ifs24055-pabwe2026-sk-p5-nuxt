@@ -5,16 +5,16 @@
 
     <form class="mt-8 space-y-5" novalidate @submit.prevent="handleSubmit">
       <div>
-        <label class="label" for="email">Email</label>
-        <input id="email" v-model="form.values.email" type="email" class="input" placeholder="nama@delcom.org" autocomplete="email" />
+        <label class="label" for="login-email-input">Email</label>
+        <input id="login-email-input" v-model="form.values.email" type="email" class="input" placeholder="nama@delcom.org" autocomplete="email" />
       </div>
       <div>
-        <label class="label" for="password">Kata Sandi</label>
-        <input id="password" v-model="form.values.password" type="password" class="input" placeholder="••••••••" autocomplete="current-password" />
+        <label class="label" for="login-password-input">Kata Sandi</label>
+        <input id="login-password-input" v-model="form.values.password" type="password" class="input" placeholder="••••••••" autocomplete="current-password" />
       </div>
       <p v-if="validationError" class="rounded-lg bg-rose-50 px-3 py-2 text-sm text-rose-600" role="alert">{{ validationError }}</p>
-      <button type="submit" class="btn-primary w-full" :disabled="authStore.isLoading">
-        <LogIn class="h-4 w-4" />
+      <button id="login-submit-button" type="submit" class="btn-primary w-full" :disabled="authStore.isLoading">
+        <LogIn class="h-4 w-4" aria-hidden="true" />
         {{ authStore.isLoading ? 'Memproses...' : 'Masuk' }}
       </button>
     </form>
