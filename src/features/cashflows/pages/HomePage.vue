@@ -31,14 +31,14 @@
           <button type="button" class="rounded-lg px-3 py-1.5" :class="trendMode === 'monthly' ? 'bg-white shadow-sm' : 'text-slate-500'" @click="trendMode = 'monthly'">Bulanan</button>
         </div>
       </div>
-      <p v-if="trendRows.length === 0" class="py-6 text-center text-sm text-slate-400">Belum ada data tren.</p>
+      <p v-if="trendRows.length === 0" class="py-6 text-center text-sm text-slate-500">Belum ada data tren.</p>
       <div v-else class="flex h-40 items-end gap-2 overflow-x-auto" data-testid="trend-chart">
         <div v-for="row in trendRows" :key="row.label" class="flex min-w-10 flex-1 flex-col items-center gap-1">
           <div class="flex h-32 items-end gap-0.5">
             <div class="w-2.5 rounded-t bg-emerald-500" :style="{ height: `${(row.inflow / trendMax) * 100}%` }" :title="`Inflow ${formatRupiah(row.inflow)}`" />
             <div class="w-2.5 rounded-t bg-rose-500" :style="{ height: `${(row.outflow / trendMax) * 100}%` }" :title="`Outflow ${formatRupiah(row.outflow)}`" />
           </div>
-          <span class="text-[10px] text-slate-400">{{ row.label }}</span>
+          <span class="text-[10px] text-slate-500">{{ row.label }}</span>
         </div>
       </div>
     </div>

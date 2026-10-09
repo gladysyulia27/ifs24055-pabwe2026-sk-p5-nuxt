@@ -10,7 +10,7 @@
         <span class="rounded-full bg-white px-3 py-1 text-xs font-bold" :class="store.cashFlow.type === 'inflow' ? 'text-emerald-700' : 'text-rose-700'">
           {{ store.cashFlow.type === 'inflow' ? 'Pemasukan (Inflow)' : 'Pengeluaran (Outflow)' }}
         </span>
-        <p class="mt-4 text-3xl font-extrabold text-slate-900" data-testid="detail-nominal">{{ formatRupiah(store.cashFlow.nominal) }}</p>
+        <h1 class="mt-4 text-3xl font-extrabold text-slate-900" data-testid="detail-nominal">{{ formatRupiah(store.cashFlow.nominal) }}</h1>
         <p class="text-sm text-slate-600">{{ store.cashFlow.label }}</p>
       </div>
       <dl class="grid gap-5 p-6 sm:grid-cols-2">
