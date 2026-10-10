@@ -25,6 +25,10 @@
         "vue": "^3.5.43",
         "vue-router": "^5.4.0"
     },
+    "overrides": {
+        "dompurify": "^3.2.4",
+        "simple-git": "^4.0.2"
+    },
     "devDependencies": {
         "@testing-library/jest-dom": "^7.0.1",
         "@testing-library/vue": "^8.1.0",
