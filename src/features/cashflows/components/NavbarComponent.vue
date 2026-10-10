@@ -34,7 +34,7 @@ import { useAuthStore } from '../../auth/states/authStore'
 import { useUsersStore } from '../../users/states/usersStore'
 import { useCashFlowsStore } from '../states/cashFlowsStore'
 
-const emit = defineEmits<{ (e: 'toggle-sidebar'): void }>()
+const emit = defineEmits<(e: 'toggle-sidebar') => void>()
 
 const router = useRouter()
 const authStore = useAuthStore()

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="modelValue" class="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Tambah arus kas">
+  <dialog v-if="modelValue" open class="fixed inset-0 z-50 m-0 flex h-full w-full max-w-none items-center justify-center border-none bg-transparent p-4" aria-modal="true" aria-label="Tambah arus kas">
     <div class="absolute inset-0 bg-slate-900/50" data-testid="modal-backdrop" @click="close" />
     <div class="relative max-h-[92vh] w-full max-w-xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl">
       <div class="mb-5 flex items-center justify-between">
@@ -14,7 +14,7 @@
         @cancel="close"
       />
     </div>
-  </div>
+  </dialog>
 </template>
 
 <script setup lang="ts">

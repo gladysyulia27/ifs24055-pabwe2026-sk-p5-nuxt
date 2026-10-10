@@ -1,18 +1,22 @@
 <template>
   <form class="space-y-5" novalidate @submit.prevent="handleSubmit">
     <div class="grid grid-cols-2 gap-2 rounded-xl bg-slate-100 p-1" role="radiogroup" aria-label="Jenis arus kas">
-      <button
+      <label
         v-for="option in typeOptions"
         :key="option.value"
-        type="button"
-        role="radio"
-        :aria-checked="form.values.type === option.value"
-        class="rounded-lg px-3 py-2 text-sm font-semibold transition"
+        class="cursor-pointer text-center rounded-lg px-3 py-2 text-sm font-semibold transition"
         :class="form.values.type === option.value ? option.activeClass : 'text-slate-500 hover:text-slate-800'"
-        @click="form.setValue('type', option.value)"
       >
+        <input
+          type="radio"
+          name="type"
+          :value="option.value"
+          class="sr-only"
+          :checked="form.values.type === option.value"
+          @change="form.setValue('type', option.value)"
+        />
         {{ option.label }}
-      </button>
+      </label>
     </div>
 
     <div class="grid gap-5 sm:grid-cols-2">
@@ -99,7 +103,7 @@ function handleSubmit() {
     errorMessage.value = 'Label kategori wajib diisi.'
     return
   }
-  if (!(nominal > 0)) {
+  if (nominal <= 0) {
     errorMessage.value = 'Nominal harus lebih besar dari 0.'
     return
   }

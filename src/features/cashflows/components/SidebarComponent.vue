@@ -26,7 +26,7 @@ import { RouterLink } from 'vue-router'
 import { LayoutDashboard, UserCircle, Users } from 'lucide-vue-next'
 
 defineProps<{ open?: boolean }>()
-const emit = defineEmits<{ (e: 'close'): void }>()
+const emit = defineEmits<(e: 'close') => void>()
 
 const activeClass = '!bg-brand-50 !text-brand-700'
 
