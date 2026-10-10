@@ -23,9 +23,9 @@ describe('ChangeModal', () => {
 
   it('tidak tampil saat tertutup atau tanpa data', async () => {
     const closed = await renderWithProviders(ChangeModal, { props: { modelValue: false, cashFlow } })
-    expect(closed.wrapper.find('[role="dialog"]').exists()).toBe(false)
+    expect(closed.wrapper.find('dialog').exists()).toBe(false)
     const empty = await renderWithProviders(ChangeModal, { props: { modelValue: true, cashFlow: null } })
-    expect(empty.wrapper.find('[role="dialog"]').exists()).toBe(false)
+    expect(empty.wrapper.find('dialog').exists()).toBe(false)
   })
 
   it('mengisi form dengan data tersimpan dan menyimpan perubahan', async () => {

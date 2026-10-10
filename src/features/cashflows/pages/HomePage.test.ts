@@ -115,7 +115,7 @@ describe('HomePage', () => {
     await wrapper.get('#cf-label').setValue('bonus')
     await wrapper.get('#cf-nominal').setValue('1000')
     const before = vi.mocked(api.getCashFlows).mock.calls.length
-    await wrapper.get('[role="dialog"] form').trigger('submit')
+    await wrapper.get('dialog form').trigger('submit')
     await flushPromises()
     expect(api.addCashFlow).toHaveBeenCalled()
     expect(vi.mocked(api.getCashFlows).mock.calls.length).toBe(before + 1)
@@ -126,11 +126,11 @@ describe('HomePage', () => {
     const { wrapper } = await setup()
     await wrapper.get('button[aria-label="Ubah"]').trigger('click')
     expect((wrapper.get('#cf-label').element as HTMLInputElement).value).toBe('alat-elektronik')
-    await wrapper.get('[role="dialog"] form').trigger('submit')
+    await wrapper.get('dialog form').trigger('submit')
     await flushPromises()
     expect(api.updateCashFlow).toHaveBeenCalledWith(4, expect.objectContaining({ label: 'alat-elektronik' }))
     await wrapper.findAll('[data-testid="cashflow-card"] button').find((b) => b.text() === 'Ubah')!.trigger('click')
-    expect(wrapper.find('[role="dialog"]').exists()).toBe(true)
+    expect(wrapper.find('dialog').exists()).toBe(true)
   })
 
   it('menghapus satu transaksi: batal, sukses, gagal', async () => {

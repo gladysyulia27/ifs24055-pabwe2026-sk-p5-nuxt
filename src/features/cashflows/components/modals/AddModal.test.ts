@@ -27,7 +27,7 @@ describe('AddModal', () => {
 
   it('tidak merender apa pun saat tertutup', async () => {
     const { wrapper } = await renderWithProviders(AddModal, { props: { modelValue: false } })
-    expect(wrapper.find('[role="dialog"]').exists()).toBe(false)
+    expect(wrapper.find('dialog').exists()).toBe(false)
   })
 
   it('validasi label dan nominal', async () => {
@@ -43,9 +43,9 @@ describe('AddModal', () => {
   it('menyimpan transaksi baru dengan pilihan jenis, sumber, label, nominal, keterangan', async () => {
     vi.mocked(api.addCashFlow).mockResolvedValue({ status: 'success', message: '', data: { cash_flow_id: 1 } })
     const { wrapper } = await renderWithProviders(AddModal, { props: { modelValue: true } })
-    const buttons = wrapper.findAll('[role="radio"]')
-    await buttons[1].trigger('click')
-    expect(buttons[1].attributes('aria-checked')).toBe('true')
+    const radios = wrapper.findAll('input[type="radio"]')
+    await radios[1].setValue()
+    expect((radios[1].element as HTMLInputElement).checked).toBe(true)
     await wrapper.find('#cf-source').setValue('savings')
     await wrapper.find('#cf-label').setValue('  makanan ')
     await wrapper.find('#cf-nominal').setValue('50000')
